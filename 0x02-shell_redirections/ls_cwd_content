@@ -1,0 +1,16 @@
+total 56
+drwxrwxr-x 2 nicanorkyamba nicanorkyamba 4096 Sep  5 16:00 .
+drwxrwxr-x 6 nicanorkyamba nicanorkyamba 4096 Sep  5 13:04 ..
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   33 Sep  5 14:55 0-hello_world
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   29 Sep  5 15:01 1-confused_smiley
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   28 Sep  5 15:06 2-hellofile
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   40 Sep  5 15:11 3-twofiles
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   29 Sep  5 15:15 4-lastlines
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   29 Sep  5 15:18 5-firstlines
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   40 Sep  5 15:26 6-third_line
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   99 Sep  5 15:52 7-file
+-rwxr-xr-x 1 nicanorkyamba nicanorkyamba   34 Sep  5 15:59 8-cwd_state
+-rw-rw-r-- 1 nicanorkyamba nicanorkyamba   12 Sep  5 15:44 \*\"Best School"\\*$?*****:)
+-rw-rw-r-- 1 nicanorkyamba nicanorkyamba   12 Sep  5 15:52 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-rw-r-- 1 nicanorkyamba nicanorkyamba    0 Sep  5 16:00 ls_cwd_content
+-rw-rw-r-- 1 nicanorkyamba nicanorkyamba   19 Sep  5 13:06 README.md
