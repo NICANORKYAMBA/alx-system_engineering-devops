@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# displays content of the current working directory
+# in list format
+# where only the part of the name after the first
+# dash is displayed
+
+content=`ls ./`
+for file in $content
+do
+    echo $file
+done
