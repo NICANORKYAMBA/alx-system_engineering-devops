@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# displays numbers 1-20 with bad luck from China 
+# after the 4th loop iteration, bad luck from Japan 
+# after the 9th loop iteration, bad luck from Italy 
+# after the 17th loop iteration
+
+i=0
+while ((i <= 23))
+do
+    case $i in
+
+	    1)
+		echo "1"
+		;;
+	    2)
+		echo "2"
+		;;
+	    3)
+		echo "3"
+		;;
+	    4)
+		echo "4"
+		;;
+	    5)
+		echo "bad luck from China"
+		;;
+	    6)
+		echo "5"
+		;;
+	    7)
+		echo "6"
+		;;
+	    8)
+		echo "7"
+		;;
+	    9)
+		echo "8"
+		;;
+	    10)
+		echo "9"
+		;;
+	    11)
+		echo "bad luck from Japan"
+		;;
+	    12)
+		echo "10"
+		;;
+	    13)
+		echo "11"
+		;;
+	    14)
+		echo "12"
+		;;
+	    15)
+		echo "13"
+		;;
+	    16)
+		echo "14"
+		;;
+	    17)
+		echo "15"
+		;;
+	    18)
+		echo "16"
+		;;
+	    19)
+		echo "17"
+		;;
+	    20)
+		echo "bad luck from Italy"
+		;;
+	    21)
+		echo "18"
+		;;
+	    22)
+		echo "19"
+		;;
+	    23)
+		echo "20"
+		;;
+
+	    esac
+	((i++))
+done
