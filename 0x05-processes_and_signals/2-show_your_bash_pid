@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# filters out processes with command name bash
+# shellcheck disable=SC2009
+
+ps -axjf | grep bash
