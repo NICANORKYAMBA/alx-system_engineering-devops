@@ -1,22 +1,12 @@
 #!/usr/bin/env bash 
 
-# Install Nginx
+# Update package list and install nginx
 sudo apt-get update
 sudo apt-get install nginx -y
 
-# Configure Nginx to listen on port 80
-sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+# Create a temporary index.html file containing "Hello World!"
+touch /var/www/html/index.html
+chmod 666 /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
-# Restart Nginx without using systemctl
-sudo kill -s HUP "$(cat /var/run/nginx.pid)"
-
-# Create a webpage that says "Hello World!"
-echo -e "Hello World!" | sudo tee /var/www/html/index.html
-
-# Test that Nginx is working correctly
-response=$(curl -s localhost)
-if [[ "$response" == *"Hello World!"* ]]; then
-    echo "Nginx is working correctly."
-else
-    echo "Nginx is not working correctly."
-fi
+service nginx start
