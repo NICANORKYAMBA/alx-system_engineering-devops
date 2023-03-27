@@ -8,7 +8,7 @@ sudo apt-get install nginx -y
 sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 
 # Restart Nginx without using systemctl
-sudo kill -s HUP $(cat /var/run/nginx.pid)
+sudo kill -s HUP "$(cat /var/run/nginx.pid)"
 
 # Create a webpage that says "Hello World!"
 echo -e "Hello World!" | sudo tee /var/www/html/index.html
