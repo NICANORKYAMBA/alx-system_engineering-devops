@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that accepts one argument and and runs the command
+# `whoami` under the user passed as an argument
+
+# Set the username to the first argument passed to the script
+username=$1
+
+# Set the user to the specified user
+sudo -u "$username" whoami
