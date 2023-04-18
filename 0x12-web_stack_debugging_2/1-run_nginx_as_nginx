@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 # Script that configures the webservers to run Nginx as nginx listening on port 8080 
 
-# Install nginx if not already installed
-if ! command -v nginx &> /dev/null
-then
-    sudo apt-get update
-    sudo apt-get install -y nginx
-fi
-
-# Stop nginx service if already running
-systemctl stop nginx
-
 # Edit the nginx.conf file to run nginx as nginx user
 sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
 
@@ -20,4 +10,4 @@ sed -i 's/listen 80;/listen 8080 default_server;/g' /etc/nginx/sites-available/d
 chmod 644 /etc/nginx/nginx.conf
 
 # Start nginx service
-systemctl start nginx
+sudo -u nginx service nginx start
