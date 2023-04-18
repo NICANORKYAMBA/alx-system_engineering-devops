@@ -10,6 +10,9 @@ sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 # Enable default site configuration
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
+# apache may interfere with nginx so kill the process if it is running
+pkill apache2
+
 chmod 644 /etc/nginx/nginx.conf
 
 # Start nginx service
