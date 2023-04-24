@@ -11,6 +11,12 @@ import sys
 if __name__ == '__main__':
 
     BASE_URL = 'https://jsonplaceholder.typicode.com'
+
+    """Get the employee ID from the command-line arguments"""
+    if len(sys.argv) < 2:
+        print('Please provide an employee ID as an argument.')
+        sys.exit(1)
+    
     employee_id = int(sys.argv[1])
 
     """Make a GET request to retrieve the employee's TODO list"""
