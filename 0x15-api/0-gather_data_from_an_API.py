@@ -44,4 +44,4 @@ if __name__ == '__main__':
     """Display the titles of completed tasks"""
     for todo in todos:
         if todo['completed']:
-            print('\t{}'.format(todo['title']))
+            print('\t {}'.format(todo['title']))
