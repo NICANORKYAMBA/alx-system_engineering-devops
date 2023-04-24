@@ -11,7 +11,7 @@ import sys
 
 
 if __name__ == '__main__':
-    BASE_URL = 'https://jsonplaceholder.typicode.com'
+    BASE_URL = 'https://jsonplaceholder.typicode.com/'
 
     """Get the employee ID from the command-line arguments"""
     if len(sys.argv) < 2:
@@ -20,17 +20,13 @@ if __name__ == '__main__':
     employee_id = int(sys.argv[1])
 
     """Make a GET request to retrieve the employee's TODO list"""
-    response = requests.get("{}/todos?userId={}".format(
-        BASE_URL, employee_id))
-
-    """Parse the JSON response into a Python list of directories"""
-    todos = response.json()
+    response = requests.get(
+            BASE_URL + "users/{}".format(employee_id)).json()
 
     """Get employee name from API"""
-    user_id = todos[0]['userId']
-    response = requests.get('{}/users/{}'.format(BASE_URL, user_id))
-    employee = response.json()
-    employee_name = employee['name']
+    employee_name = response.get("username")
+    todos = requests.get(
+            BASE_URL + "todos", params={"userId": employee_id}).json()
 
     """Export data to CSV"""
     csv_filename = '{}.csv'.format(employee_id)
