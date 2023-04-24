@@ -8,15 +8,11 @@ import requests
 import sys
 
 
-if len(sys.argv) < 2:
-    print('Please provide an employee ID as an argument.')
-    sys.exit(1)
-
 BASE_URL = 'https://jsonplaceholder.typicode.com'
 employee_id = int(sys.argv[1])
 
 """Make a GET request to retrieve the employee's TODO list"""
-response = requests.get('{}/todos?userID={}'.format(
+response = requests.get('{}/todos?userId={}'.format(
     BASE_URL, employee_id))
 
 """Parse the JSON response into a Python list of dictionaries"""
