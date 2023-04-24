@@ -27,8 +27,8 @@ if __name__ == '__main__':
     todos = response.json()
 
     """Get employee name from API"""
-    response = requests.get("{}/users/{}".format(
-        BASE_URL, employee_id))
+    user_id = todos[0]['userId']
+    response = requests.get('{}/users/{}'.format(BASE_URL, user_id))
     employee = response.json()
     employee_name = employee['name']
 
