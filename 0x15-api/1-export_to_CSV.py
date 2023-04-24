@@ -35,7 +35,7 @@ if __name__ == '__main__':
     """Export data to CSV"""
     csv_filename = '{}.csv'.format(employee_id)
     with open(csv_filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_file)
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for todo in todos:
             writer.writerow(
                     [employee_id, employee_name,
