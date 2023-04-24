@@ -40,12 +40,3 @@ if __name__ == '__main__':
             writer.writerow(
                     [employee_id, employee_name,
                         todo['completed'], todo['title']])
-
-    """Display the progress information"""
-    total_tasks = len(todos)
-    completed_tasks = sum(1 for todo in todos if todo['completed'])
-    print('Employee {} is done with tasks({}/{}):'.format(
-        employee_name, completed_tasks, total_tasks))
-    for todo in todos:
-        if todo['completed']:
-            print('\t{}'.format(todo["title"]))
