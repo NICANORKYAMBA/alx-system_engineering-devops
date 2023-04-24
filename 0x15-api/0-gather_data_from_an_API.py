@@ -9,7 +9,7 @@ import sys
 
 
 if __name__ == '__main__':
-    
+
     BASE_URL = 'https://jsonplaceholder.typicode.com'
     employee_id = int(sys.argv[1])
 
