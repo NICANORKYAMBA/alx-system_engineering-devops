@@ -36,4 +36,4 @@ print("Employee {} is done with tasks({}/{}):".format(
 """Display the titles of completed tasks"""
 for todo in todos:
     if todo['completed']:
-        print('\n\t{}'.format(todo['title']))
+        print('\t{}'.format(todo['title']))
