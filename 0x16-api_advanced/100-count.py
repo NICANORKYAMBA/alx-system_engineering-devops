@@ -16,34 +16,43 @@ def count_words(subreddit, word_list, instances=None, after=None, count=0):
         after (str): The parameter for the next page of the API results.
         count (int): The parameter of results matched thus far.
     """
-    if instances is None:
-        instances = {}
-    if after is None:
-        url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    else:
-        url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit) + "?count=" + str(count) + "&after=" + after
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
-        "User-Agent": "myUserAgent"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code != 200:
+    params = {
+        "after": after,
+        "count": count,
+        "limit": 100
+    }
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
+    try:
+        results = response.json()
+        if response.status_code == 404:
+            raise Exception
+    except Exception:
+        print("")
         return
-    results = response.json().get("data")
+
+    results = results.get("data")
     after = results.get("after")
     count += results.get("dist")
     for c in results.get("children"):
-        title = c.get("data").get("title").lower()
+        title = c.get("data").get("title").lower().split()
         for word in word_list:
-            if (not word) or (word.lower() in title and
-                    not any([c.lower() in title for c in "0123456789!@#$%^&*()_+={}[]|\:;\"<>,.?/~"])):
-                times = title.count(word.lower())
-                if word.lower() in instances:
-                    instances[word.lower()] += times
+            if word.lower() in title:
+                times = len([t for t in title if t == word.lower()])
+                if instances.get(word) is None:
+                    instances[word] = times
                 else:
-                    instances[word.lower()] = times
-    if after is not None:
-        count_words(subreddit, word_list, instances, after, count)
+                    instances[word] += times
+
+    if after is None:
+        if len(instances) == 0:
+            print("")
+            return
+        instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
+        [print("{}: {}".format(k, v)) for k, v in instances]
     else:
-        items = sorted(instances.items(), key=lambda x: (-x[1], x[0]))
-        for item in items:
-            print(item[0] + ": " + str(item[1]))
+        count_words(subreddit, word_list, instances, after, count)
