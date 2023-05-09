@@ -1,10 +1,16 @@
 #!/usr/bin/python3
+"""
+Returns the number of subscribers for a given subreddit.
+"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Returns the number of subscribers for a given subreddit."""
-
+    """
+    Returns number of subscribers for a given subreddit
+    """
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
     """
     Set the URL for the Reddit API endpoint that provides
     information about the subreddit
@@ -23,15 +29,9 @@ def number_of_subscribers(subreddit):
     """
     response = requests.get(url, headers=headers)
 
-    """
-    If the response is successful, extract the number of
-    subscribers from the JSON response
-    """
-    if response.status_code == 200:
-        data = response.json()
+    data = response.json()
+
+    try:
         return data['data']['subscribers']
-    """
-    If the subreddit is invalid or the request fails, return 0
-    """
-    else:
+    except Exception:
         return 0
