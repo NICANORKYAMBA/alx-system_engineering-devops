@@ -39,7 +39,8 @@ def recurse(subreddit, hot_list=None, after=None):
     """
     Make the API request and parse the JSON response
     """
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(
+            url, headers=headers, params=params, allow_redirects=False)
     if response.status_code == 200:
         data = response.json()['data']
         hot_list += [post['data']['title'] for post in data['children']]
